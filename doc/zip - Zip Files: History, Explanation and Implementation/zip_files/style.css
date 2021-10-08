@@ -1,0 +1,128 @@
+body {
+        text-align: center;
+        margin-top: 0px;
+        padding-bottom: 10px;
+        background-color: #EDEDED;
+        color: #000000;
+        font-family: "DejaVu Serif", "Times New Roman", Times, serif;
+        font-size: 12pt;
+        line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+        font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+        line-height: 1.2;
+}
+
+a { color: blue; text-decoration: none }
+a:hover { text-decoration: underline; }
+a:visited { color: #0000BB; }
+
+/* No borders around image links. */
+a img { border: none; }
+
+
+div#main {
+        margin: auto;
+        padding: 0px;
+        background: #ffffff;
+        border-width: 1px;
+        border-color: #000000;
+        border-style: none solid solid solid;
+        width: 100%;
+}
+
+img#header {
+        width: 100%;
+}
+
+@media (min-width: 920px) {
+        /* Try to be responsive. */
+        div#main { width: 900px; }
+        img#header { width: 900px; height: 400px; }
+}
+
+div#container {
+        margin-left: 10px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+}
+
+div#center {
+        text-align: center;
+        margin: 2em;
+}
+
+span.date {
+        color: #999999;
+        font-size: 11pt;
+}
+
+ul {
+        list-style: square;
+}
+
+ul#menu {
+        list-style: none;
+}
+
+div#left {
+        text-align: left;
+}
+
+div#footer {
+        font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+        clear: both;
+        font-size: 9pt;
+        color: #999999;
+}
+
+div#footer a {
+        color: #999999;
+}
+
+pre, span.code {
+        font-size: 10pt;
+        font-family: "DejaVu Sans Mono", "Courier New", Courier, monospace;
+        line-height: 1.1;
+}
+pre {
+        margin-left: 2em;
+        margin-right: 2em;
+        overflow-x: auto;
+        padding-bottom: 1ex; /* For Chrome. */
+}
+div.latex {
+        overflow-x: auto;
+}
+
+@media (max-width: 919px) {
+        /* Use the full page width, reduce font size slightly. */
+        div#main { width: 100%; border: none; }
+        div#container { margin: 0px; }
+        div#center { margin: 0px; }
+        body { font-size: 11pt; background-color: #ffffff; }
+        pre, span.code { font-size: 9pt; }
+
+        /* Reduce code indent. */
+        pre { margin: 0.5em; }
+        blockquote { margin-left: 0.5em; margin-right: 0px; }
+
+        body { margin: 0px; }
+        div#container { margin: 8px; }
+}
+
+@media print {
+        pre { white-space: pre-wrap; }
+        div.latex { overflow-x: visible; }
+        div.latex p { margin-left: 0em; }
+
+        /* Use the full page width, reduce font size slightly. */
+        div#main { width: 100%; border: none; }
+        div#container { margin: 0px; }
+        div#center { margin: 0px; }
+        body { font-size: 11pt; background-color: #ffffff; }
+        pre, span.code { font-size: 9pt; }
+
+        a { text-decoration: underline; }
+}
