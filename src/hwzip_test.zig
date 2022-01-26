@@ -6,7 +6,7 @@ const fs = std.fs;
 const mem = std.mem;
 const os = std.os;
 const tmpDir = std.testing.tmpDir;
-const warn = std.debug.warn;
+const warn = std.debug.print;
 
 const ArrayList = std.ArrayList;
 const TmpDir = std.testing.TmpDir;

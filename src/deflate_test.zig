@@ -142,7 +142,7 @@ test "deflate_mixed_blocks" {
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
-    const allocator = &arena.allocator;
+    const allocator = arena.allocator();
 
     src = try allocator.create(SrcBuffer);
 
@@ -180,7 +180,7 @@ test "deflate_random" {
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
-    const allocator = &arena.allocator;
+    const allocator = arena.allocator();
 
     src = try allocator.create(SrcBuffer);
 
