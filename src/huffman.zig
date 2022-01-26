@@ -4,7 +4,7 @@ const bu = @import("./bits.zig"); // bits utilities
 
 const std = @import("std");
 const assert = std.debug.assert;
-const builtin = std.builtin;
+const builtin = @import("builtin");
 const math = std.math;
 
 const UINT8_MAX = math.maxInt(u8);
@@ -257,7 +257,7 @@ fn compute_huffman_lengths(freqs: [*]const u16, n: usize, max_len: u5, lengths: 
 
     var freq_cap: u16 = UINT16_MAX;
 
-    if (builtin.mode == builtin.Mode.Debug) {
+    if (builtin.mode == .Debug) {
         var freq_sum: u32 = 0;
         i = 0;
         while (i < n) : (i += 1) {
