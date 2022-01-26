@@ -1,5 +1,6 @@
 const std = @import("std");
 const allocator = std.testing.allocator;
+const builtin = @import("builtin");
 const debug = std.debug;
 const expect = std.testing.expect;
 const fs = std.fs;
@@ -14,6 +15,7 @@ const TmpDir = std.testing.TmpDir;
 const binary_path = "./zig-out/bin/hwzip";
 
 test "print usage" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     var tmp = initTestDir();
     defer tmp.cleanup();
 
@@ -43,6 +45,7 @@ test "print usage" {
 }
 
 test "list files within archive created by Info-ZIP" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // zip file created with Info-ZIP.
     // ```
     // echo -n foo > foo
@@ -85,6 +88,7 @@ test "list files within archive created by Info-ZIP" {
 }
 
 test "extract files from archive created by Info-ZIP" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // zip file created with Info-ZIP.
     // ```
     // echo -n foo > foo
@@ -130,6 +134,7 @@ test "extract files from archive created by Info-ZIP" {
 }
 
 test "Create a ZIP file without comment." {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     var tmp = initTestDir();
     defer tmp.cleanup();
 
@@ -162,6 +167,7 @@ test "Create a ZIP file without comment." {
 }
 
 test "Create a ZIP file with comment." {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     var tmp = initTestDir();
     defer tmp.cleanup();
 
@@ -200,6 +206,7 @@ test "Create a ZIP file with comment." {
 }
 
 test "Create an empty zip file." {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     var tmp = initTestDir();
     defer tmp.cleanup();
 
@@ -227,6 +234,7 @@ test "Create an empty zip file." {
 }
 
 test "Empty with comment." {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     var tmp = initTestDir();
     defer tmp.cleanup();
 
@@ -263,6 +271,7 @@ test "Empty with comment." {
 }
 
 test "Shrink create" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // created with `dd if=/dev/zero of=zeros bs=1 count=1024`
 
     var tmp = initTestDir();
@@ -303,6 +312,7 @@ test "Shrink create" {
 }
 
 test "Shrink extract" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // created with `hwzip create shrink.zip -m shrink zeros`
 
     var tmp = initTestDir();
@@ -340,6 +350,7 @@ test "Shrink extract" {
 }
 
 test "Reduce create" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // created with `dd if=/dev/zero of=zeros bs=1 count=1024`
 
     var tmp = initTestDir();
@@ -380,6 +391,7 @@ test "Reduce create" {
 }
 
 test "Reduce extract" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // created with `hwzip create shrink.zip -m shrink zeros`
 
     var tmp = initTestDir();
@@ -417,6 +429,7 @@ test "Reduce extract" {
 }
 
 test "Implode create with a comment" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // created with `dd if=/dev/zero of=zeros bs=1 count=1024`
 
     var tmp = initTestDir();
@@ -461,6 +474,7 @@ test "Implode create with a comment" {
 }
 
 test "Implode extract" {
+    if (builtin.os.tag == .windows) return error.SkipZigTest;
     // created with `hwzip create shrink.zip -m shrink zeros`
 
     var tmp = initTestDir();
