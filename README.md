@@ -2,7 +2,7 @@
 
 ## What's hwzip.zig?
 
-It's a port in Zig of the program **hwzip-2.0** written by Hans Wennborg.
+It's a port in Zig of the program **hwzip-2.1** written by Hans Wennborg.
 - [Zip Files: History, Explanation and Implementation](https://www.hanshq.net/zip.html)
 - [Shrink, Reduce, and Implode: The Legacy Zip Compression Methods](https://www.hanshq.net/zip2.html)
 
@@ -16,7 +16,7 @@ This means it's not idiomatic Zig code, it's more a translation than a port.
 ## Why hwzip.zig?
 
  - Because you can compile, test and run it without any dependencies (except Zig).
-   The C version requires the usual hell of building utilities, the *Info-ZIP* binary and links into *zlib*.
+   The C version requires the usual hell of building utilities, the *Info-ZIP* binary, and links into *zlib*.
 
  - I needed a way to compress files in Zig.
 
@@ -24,7 +24,7 @@ This means it's not idiomatic Zig code, it's more a translation than a port.
 
 ## Building instructions
 
-Download and install [Zig](https://ziglang.org/download/) **0.9.0**
+Download and install [Zig](https://ziglang.org/download/) **0.9.1**
 
 To build the binary in `./zig-out/bin/hwzip` you need to run
 
@@ -51,19 +51,17 @@ Supported compression methods:
 store, shrink, reduce, implode, deflate (default).
 ```
 
-## List of changes from *hwzip-2.0*
+## List of changes from *hwzip-2.1*
 
  - The debug field `huffman_decoder_t.num_syms` is commented out.
  - Fuzz tests are missing.
  - Uses `std.hash.crc32()` from Zig instead of a custom one.
  - Uses epoch dos date for dates before 1980-01-01 in `zip.ctime2dos()`
  - The table `reverse8_tbl` is replaced by the function `bits.reverse8()`.
- - Fixed some typos `CHECK(x = y)` instead of `CHECK(x == y)` in some tests.
- - Fixed an integer overflow causing the compression percentage being wrong for compressed files bigger than 42,949,673 bytes `(hwzip.c:202) (100*comp_size)`.
 
 ## Limitations
 
-**hwzip.zig** comes with no warranties, I may have introduced bugs which are not in the original version *hwzip-2.0*.
+**hwzip.zig** comes with no warranties, I may have introduced bugs which are not in the original version *hwzip-2.1*.
 
 You cannot recursively compress files within a directory, you need to list all files that you want to add to the archive.
 

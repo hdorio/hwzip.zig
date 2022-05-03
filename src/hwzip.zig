@@ -1,4 +1,4 @@
-// This file is a port of hwzip 2.0 from https://www.hanshq.net/zip.html
+// This file is a port of hwzip 2.1 from https://www.hanshq.net/zip.html
 
 const std = @import("std");
 const allocator = std.heap.page_allocator;
@@ -12,7 +12,7 @@ const time = @import("./time.zig");
 const zip = @import("./zip.zig");
 const UINT16_MAX = math.maxInt(u16);
 const UINT32_MAX = math.maxInt(u32);
-const VERSION = "2.0";
+const VERSION = "2.1";
 
 fn printf(comptime fmt: []const u8, args: anytype) !void {
     var out = try std.fmt.allocPrint(allocator, fmt, args);
@@ -195,7 +195,7 @@ fn zip_callback(
     printf("{s}", .{filename}) catch {};
     if (method != zip.method_t.ZIP_STORE) {
         assert(size != 0); // "Empty files should use Store."
-        printf(" ({d}%)", .{100 - @as(u64, 100) * comp_size / size}) catch {};
+        printf(" ({d:.0}%)", .{100.0 - 100.0 * @intToFloat(f64, comp_size) / @intToFloat(f64, size)}) catch {};
     }
     print("\n") catch {};
 }

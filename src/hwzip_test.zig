@@ -25,7 +25,7 @@ test "print usage" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Usage:
         \\
@@ -68,7 +68,7 @@ test "list files within archive created by Info-ZIP" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Listing ZIP archive: info-zip.zip
         \\
@@ -111,7 +111,7 @@ test "extract files from archive created by Info-ZIP" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Extracting ZIP archive: info-zip.zip
         \\
@@ -151,7 +151,7 @@ test "Create a ZIP file without comment." {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Creating ZIP archive: test-without-comment.zip
         \\
@@ -186,7 +186,7 @@ test "Create a ZIP file with comment." {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Creating ZIP archive: test-with-a-comment.zip
         \\
@@ -217,7 +217,7 @@ test "Create an empty zip file." {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Creating ZIP archive: empty.zip
         \\
@@ -247,7 +247,7 @@ test "Empty with comment." {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Creating ZIP archive: empty-with-a-comment.zip
         \\
@@ -290,11 +290,11 @@ test "Shrink create" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Creating ZIP archive: shrink.zip
         \\
-        \\   Shrunk: zeros (96%)
+        \\   Shrunk: zeros (95%)
         \\
         \\
     ;
@@ -328,7 +328,7 @@ test "Shrink extract" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Extracting ZIP archive: shrink.zip
         \\
@@ -369,11 +369,11 @@ test "Reduce create" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Creating ZIP archive: reduce.zip
         \\
-        \\  Reduced: zeros (74%)
+        \\  Reduced: zeros (73%)
         \\
         \\
     ;
@@ -407,7 +407,7 @@ test "Reduce extract" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Extracting ZIP archive: reduce.zip
         \\
@@ -450,7 +450,7 @@ test "Implode create with a comment" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Creating ZIP archive: implode.zip
         \\
@@ -490,7 +490,7 @@ test "Implode extract" {
 
     var output =
         \\
-        \\HWZIP 2.0 -- A simple ZIP program from https://www.hanshq.net/zip.html
+        \\HWZIP 2.1 -- A simple ZIP program from https://www.hanshq.net/zip.html
         \\
         \\Extracting ZIP archive: implode.zip
         \\
