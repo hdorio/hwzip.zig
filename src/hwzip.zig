@@ -31,7 +31,7 @@ fn crc32(data: [*]const u8, size: usize) u32 {
 fn read_file(filename: [*:0]const u8, file_sz: *usize) ![]u8 {
     const file = try std.fs.cwd().openFile(
         filename[0..mem.indexOfSentinel(u8, 0x0, filename)],
-        .{ .read = true },
+        .{ .mode = .read_only },
     );
     defer file.close();
 

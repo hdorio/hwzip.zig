@@ -647,7 +647,7 @@ pub fn zip_write(
     mtimes: ?[*]const time.time_t,
     comment: ?[*:0]const u8,
     method: method_t,
-    callback: ?fn (filename: [*:0]const u8, method: method_t, size: u32, comp_size: u32) CallbackError!void,
+    comptime callback: ?fn (filename: [*:0]const u8, method: method_t, size: u32, comp_size: u32) CallbackError!void,
 ) !u32 {
     var i: u16 = 0;
     var p: [*]u8 = undefined;

@@ -90,8 +90,7 @@ pub fn huffman_decoder_init(d: *huffman_decoder_t, lengths: [*]const u8, n: usiz
         assert(d.sentinel_bits[l] >= code[l]); // "No overflow!"
 
         sym_idx[l] = sym_idx[l - 1] + count[l - 1];
-        var sub_tmp: u16 = 0;
-        _ = @subWithOverflow(u16, sym_idx[l], code[l], &sub_tmp);
+        var sub_tmp: u16 = @subWithOverflow(sym_idx[l], code[l])[0];
         d.offset_first_sym_idx[l] = sub_tmp;
     }
 
@@ -119,7 +118,7 @@ pub fn huffman_decoder_init(d: *huffman_decoder_t, lengths: [*]const u8, n: usiz
 // Returns the decoded symbol number or -1 if no symbol could be decoded.
 // *num_used_bits will be set to the number of bits used to decode the symbol,
 // or zero if no symbol could be decoded.
-pub inline fn huffman_decode(d: *const huffman_decoder_t, bits: u16, num_used_bits: *usize) !u16 {
+pub inline fn huffman_decode(d: *const huffman_decoder_t, bits: u16, num_used_bits: *usize) Error!u16 {
     var lookup_bits: u64 = 0;
     var l: u5 = 0;
     var sym_idx: usize = 0;
