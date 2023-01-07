@@ -192,8 +192,7 @@ pub fn hash4(ptr: [*]const u8) u32 {
     const HASH_MUL: u32 = 2654435761;
 
     // Knuth's multiplicative hash.
-    var mult: u32 = undefined;
-    _ = @mulWithOverflow(u32, bits.read32le(ptr), HASH_MUL, &mult);
+    var mult: u32 = @mulWithOverflow(bits.read32le(ptr), HASH_MUL)[0];
     return mult >> (32 - HASH_SIZE);
 }
 

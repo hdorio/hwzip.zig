@@ -54,8 +54,7 @@ fn hash(code: u16, byte: u8) u32 {
     };
 
     // Knuth's multiplicative hash.
-    var mult: u32 = undefined;
-    _ = @mulWithOverflow(u32, (@intCast(u32, byte) << 16) | code, Static.HASH_MUL, &mult);
+    var mult: u32 = @mulWithOverflow((@intCast(u32, byte) << 16) | code, Static.HASH_MUL)[0];
     return (mult) >> (32 - HASH_BITS);
 }
 
